@@ -14,6 +14,7 @@ def process_word(word, i):
         for j in range(len(word)):
             new_word = word[:j] + word[j + 1:]
             if (i - 1) in input_set and new_word in input_set[i - 1]:
+                # Recursive call to check possible chains through children
                 temp_res = process_word(new_word, i - 1)
                 if temp_res['chain'] > best_child_len:
                     best_child_len = temp_res['chain']
